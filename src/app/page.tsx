@@ -3,7 +3,7 @@ import TabContainer from "@/components/Home/TabContainer";
 
 export default function Home() {
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="py-10">
       <TabContainer />
     </MaxWidthWrapper>
   );
