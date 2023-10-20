@@ -29,7 +29,7 @@ const TabContainer = () => {
             </div>
           </CardHeader>
           {GainerLoser?.top_gainers?.map((item: GainerLoser) => (
-            <CardContent>
+            <CardContent key={item?.ticker}>
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium text-primary">
                   {item?.ticker}
