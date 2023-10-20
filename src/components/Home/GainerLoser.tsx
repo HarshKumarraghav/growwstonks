@@ -77,7 +77,7 @@ const GainerLoser = ({ GainerData, value }: GainerLoserProps) => {
                 </span>
                 <span className="text-sm font-medium">{volume}</span>
               </div>
-              <div className="flex sm:hidden w-1/3 justify-between text-end">
+              <div className="flex sm:hidden w-1/3 justify-end text-end">
                 <span className="text-sm font-medium">
                   {selectedValue === "price" && <>${price}</>}
                   {selectedValue === "change_amount" && change_amount}
