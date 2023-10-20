@@ -82,9 +82,16 @@ const TabContainer = () => {
                     </span>
                     <span className="text-sm font-medium">{volume}</span>
                   </div>
-                  <div className="flex sm:hidden w-1/2 justify-between text-center">
+                  <div className="flex sm:hidden w-1/2 justify-between text-end">
                     <span className="text-sm font-medium">
-                      ${selectedValue}
+                      {selectedValue === "price" && <>${price}</>}
+                      {selectedValue === "change_amount" && change_amount}
+                      {selectedValue === "change_percentage" && (
+                        <span className="text-primary">
+                          {change_percentage}%
+                        </span>
+                      )}
+                      {selectedValue === "volume" && volume}
                     </span>
                   </div>
                 </div>
