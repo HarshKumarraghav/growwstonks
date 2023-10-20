@@ -36,7 +36,9 @@ const Header = () => {
               />
               <Search className=" absolute text w-4 h-4" />
             </div>
-            <ThemeSwitcher />
+            <div className="hidden sm:block">
+              <ThemeSwitcher />
+            </div>
           </div>
         </div>
       </MaxWidthWrapper>

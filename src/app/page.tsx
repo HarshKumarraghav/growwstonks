@@ -1,9 +1,10 @@
-import Image from "next/image";
+import MaxWidthWrapper from "@/components/Container/MaxWidthWrapper";
+import TabContainer from "@/components/Home/TabContainer";
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-primary">Hello World</h1>
-    </div>
+    <MaxWidthWrapper>
+      <TabContainer />
+    </MaxWidthWrapper>
   );
 }
