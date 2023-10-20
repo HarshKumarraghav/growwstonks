@@ -82,13 +82,14 @@ const GainerLoser = ({ GainerData, value }: GainerLoserProps) => {
                   {selectedValue === "price" && <>${price}</>}
                   {selectedValue === "change_amount" && change_amount}
                   {selectedValue === "change_percentage" && (
-                    <span
-                      className={`${
+                    <div
+                      className={`text-sm font-medium flex gap-1 justify-center items-center ${
                         value === "gainer" ? "text-primary" : "text-red-500"
                       }`}
                     >
-                      <ArrowBigUp /> {change_percentage}%
-                    </span>
+                      {value === "gainer" ? <ArrowBigUp /> : <ArrowBigDown />}
+                      <span>{change_percentage}%</span>
+                    </div>
                   )}
                   {selectedValue === "volume" && volume}
                 </span>
