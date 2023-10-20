@@ -12,7 +12,7 @@ import {
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { GainerLoser } from "../../../types/types";
 import { type } from "os";
-import { ArrowBigUp } from "lucide-react";
+import { ArrowBigDown, ArrowBigUp } from "lucide-react";
 type GainerLoserProps = {
   GainerData: GainerLoser[];
   value: string;
@@ -69,11 +69,12 @@ const GainerLoser = ({ GainerData, value }: GainerLoserProps) => {
                 <span className="text-sm font-medium">${price}</span>
                 <span className="text-sm font-medium">{change_amount}</span>
                 <span
-                  className={`text-sm font-medium ${
+                  className={`text-sm font-medium flex gap-1 justify-center items-center ${
                     value === "gainer" ? "text-primary" : "text-red-500"
                   }`}
                 >
-                  <ArrowBigUp /> {change_percentage}%
+                  {value === "gainer" ? <ArrowBigUp /> : <ArrowBigDown />}{" "}
+                  {change_percentage}%
                 </span>
                 <span className="text-sm font-medium">{volume}</span>
               </div>
