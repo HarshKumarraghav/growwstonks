@@ -11,7 +11,14 @@ import {
 } from "../ui/select";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { GainerLoser } from "../../../types/types";
-const GainerLoser = ({ GainerData }: any) => {
+import { type } from "os";
+import { ArrowBigUp } from "lucide-react";
+type GainerLoserProps = {
+  GainerData: GainerLoser[];
+  value: string;
+};
+
+const GainerLoser = ({ GainerData, value }: GainerLoserProps) => {
   const [selectedValue, setSelectedValue] = useState("price");
   return (
     <Card className="w-full">
@@ -61,7 +68,13 @@ const GainerLoser = ({ GainerData }: any) => {
               <div className="hidden sm:flex w-1/2 justify-between text-center">
                 <span className="text-sm font-medium">${price}</span>
                 <span className="text-sm font-medium">{change_amount}</span>
-                <span className="text-sm font-medium">{change_percentage}</span>
+                <span
+                  className={`text-sm font-medium ${
+                    value === "gainer" ? "text-primary" : "text-red-500"
+                  }`}
+                >
+                  <ArrowBigUp /> {change_percentage}%
+                </span>
                 <span className="text-sm font-medium">{volume}</span>
               </div>
               <div className="flex sm:hidden w-full justify-between text-end">
@@ -69,7 +82,13 @@ const GainerLoser = ({ GainerData }: any) => {
                   {selectedValue === "price" && <>${price}</>}
                   {selectedValue === "change_amount" && change_amount}
                   {selectedValue === "change_percentage" && (
-                    <span className="text-primary">{change_percentage}%</span>
+                    <span
+                      className={`${
+                        value === "gainer" ? "text-primary" : "text-red-500"
+                      }`}
+                    >
+                      <ArrowBigUp /> {change_percentage}%
+                    </span>
                   )}
                   {selectedValue === "volume" && volume}
                 </span>

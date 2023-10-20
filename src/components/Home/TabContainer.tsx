@@ -1,10 +1,11 @@
 "use client";
 import { useTopGainerLoser } from "@/utils/Hooks/useTopGainerLoser";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
+import GainerLoser from "./GainerLoser";
 
 const TabContainer = () => {
-  const { data: GainerLoser } = useTopGainerLoser();
-  console.log("data", GainerLoser);
+  const { data: GainerLoserData } = useTopGainerLoser();
+  console.log("data", GainerLoserData);
 
   return (
     <Tabs defaultValue="gainer" className="w-full">
@@ -13,10 +14,13 @@ const TabContainer = () => {
         <TabsTrigger value="loser">Losers</TabsTrigger>
       </TabsList>
       <TabsContent value="gainer" className="w-full">
-        <GainerLoser GainerData={GainerLoser?.top_gainers} />
+        <GainerLoser
+          GainerData={GainerLoserData?.top_gainers}
+          value={"gainer"}
+        />
       </TabsContent>
       <TabsContent value="loser" className="w-full">
-        <GainerLoser GainerData={GainerLoser?.top_losers} />
+        <GainerLoser GainerData={GainerLoserData?.top_losers} value={"loser"} />
       </TabsContent>
     </Tabs>
   );
