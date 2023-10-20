@@ -35,8 +35,8 @@ const Header = () => {
                 placeholder="Search Stock and etf"
               />
               <Search className=" absolute text w-4 h-4" />
-              <ThemeSwitcher />
             </div>
+            <ThemeSwitcher />
           </div>
         </div>
       </MaxWidthWrapper>
