@@ -6,9 +6,8 @@ export default function Home() {
   return (
     <MaxWidthWrapper className="py-10 relative gap-4 flex">
       <TabContainer />
-      <div className="w-[450px] hidden sm:flex h-[350px]">
-        <CompanyInfo />
-      </div>
+
+      <CompanyInfo />
     </MaxWidthWrapper>
   );
 }

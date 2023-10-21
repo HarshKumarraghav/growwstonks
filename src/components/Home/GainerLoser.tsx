@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { GainerLoser } from "../../../types/types";
-import { ArrowBigDown, ArrowBigUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Header from "./Header";
 import SkeletonLoader from "../Loader/SkeletonLoader";
+import { useDataStore } from "@/utils/Hooks/useDataStore";
 type GainerLoserProps = {
   GainerData: GainerLoser[];
   value: string;
@@ -13,6 +14,7 @@ type GainerLoserProps = {
 };
 
 const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
+  const { tickerValue, setTickerValue } = useDataStore();
   const [selectedValue, setSelectedValue] = useState("price");
   return (
     <Card className="w-full">
@@ -42,13 +44,19 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
               volume,
             }: GainerLoser) => (
               <div
-                className="flex justify-between items-center h-10 border-b"
+                className={`flex justify-between items-center h-10 border-b p-2 ${
+                  ticker === tickerValue &&
+                  `bg-primary/20   rounded-md bg-opacity-10`
+                }`}
                 key={ticker}
               >
                 <span className="text-sm font-medium text-primary">
                   {ticker}
                 </span>
-                <div className="hidden sm:flex w-1/2 justify-between text-center">
+                <div
+                  className="hidden sm:flex w-1/2 justify-between text-center cursor-pointer"
+                  onClick={() => setTickerValue(ticker)}
+                >
                   <span className="text-sm font-medium">${price}</span>
                   <span className="text-sm font-medium">{change_amount}</span>
                   <div
@@ -56,8 +64,8 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                       value === "gainer" ? "text-primary" : "text-red-500"
                     }`}
                   >
-                    {value === "gainer" ? <ArrowBigUp /> : <ArrowBigDown />}
                     <span>{change_percentage}%</span>
+                    {value === "gainer" ? <ChevronUp /> : <ChevronDown />}
                   </div>
                   <span className="text-sm font-medium">{volume}</span>
                 </div>
@@ -71,8 +79,8 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                           value === "gainer" ? "text-primary" : "text-red-500"
                         }`}
                       >
-                        {value === "gainer" ? <ArrowBigUp /> : <ArrowBigDown />}
                         <span>{change_percentage}%</span>
+                        {value === "gainer" ? <ChevronUp /> : <ChevronDown />}
                       </div>
                     )}
                     {selectedValue === "volume" && volume}

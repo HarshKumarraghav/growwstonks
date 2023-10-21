@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export const useTopGainerLoser = () => {
+export const useCompanyInfo = (symbol: string) => {
   const SECRET_KEY = process.env.NEXT_PUBLIC_ALPHA_API_KEY;
-  const URL = ` ${"https://www.alphavantage.co/query?function="}${"TOP_GAINERS_LOSERS"}&apikey=${SECRET_KEY}`;
+  const URL = ` ${"https://www.alphavantage.co/query?function="}${"OVERVIEW"}&symbol=${symbol}&apikey=${SECRET_KEY}`;
   return useQuery({
-    queryKey: ["gainer_looser", URL],
+    queryKey: ["OVERVIEW", symbol],
     queryFn: async () => {
       const { data } = await axios.get(URL);
       return data;

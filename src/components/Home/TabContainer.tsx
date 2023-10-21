@@ -2,9 +2,18 @@
 import { useTopGainerLoser } from "@/utils/Hooks/useTopGainerLoser";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 import GainerLoser from "./GainerLoser";
+import { useDataStore } from "@/utils/Hooks/useDataStore";
+import { useEffect } from "react";
 
 const TabContainer = () => {
   const { data: GainerLoserData, isError, isLoading } = useTopGainerLoser();
+  const { setTickerValue } = useDataStore();
+  useEffect(() => {
+    GainerLoserData &&
+      GainerLoserData?.top_gainers &&
+      setTickerValue(GainerLoserData?.top_gainers[0]?.ticker);
+  }, [GainerLoserData]);
+
   if (isError)
     return (
       <div className="w-sreeen min-h-[100vh-6rem] justify-center items-center flex text-xl font-bold">
