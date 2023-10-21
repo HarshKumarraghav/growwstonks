@@ -5,7 +5,12 @@ import GainerLoser from "./GainerLoser";
 
 const TabContainer = () => {
   const { data: GainerLoserData, isError, isLoading } = useTopGainerLoser();
-  if (isError) return <div>failed to load</div>;
+  if (isError)
+    return (
+      <div className="w-sreeen min-h-[100vh-6rem] justify-center items-center flex text-xl font-bold">
+        <h1>Something went wrong</h1>
+      </div>
+    );
   return (
     <Tabs defaultValue="gainer" className="w-full">
       <TabsList className="grid w-full sm:w-1/5 grid-cols-2">
@@ -13,18 +18,34 @@ const TabContainer = () => {
         <TabsTrigger value="loser">Losers</TabsTrigger>
       </TabsList>
       <TabsContent value="gainer" className="w-full">
-        <GainerLoser
-          GainerData={GainerLoserData?.top_gainers}
-          value={"gainer"}
-          isLoading={isLoading}
-        />
+        {GainerLoserData?.Information ? (
+          <div className="flex justify-between items-center bg-secondary p-4 text-red-500 rounded-xl">
+            <span className="text-sm font-thin">
+              {GainerLoserData?.Information}
+            </span>
+          </div>
+        ) : (
+          <GainerLoser
+            GainerData={GainerLoserData?.top_gainers}
+            value={"gainer"}
+            isLoading={isLoading}
+          />
+        )}
       </TabsContent>
       <TabsContent value="loser" className="w-full">
-        <GainerLoser
-          GainerData={GainerLoserData?.top_losers}
-          value={"loser"}
-          isLoading={isLoading}
-        />
+        {GainerLoserData?.Information ? (
+          <div className="flex justify-between items-center bg-secondary p-4 text-red-500 rounded-xl">
+            <span className="text-sm font-thin">
+              {GainerLoserData?.Information}
+            </span>
+          </div>
+        ) : (
+          <GainerLoser
+            GainerData={GainerLoserData?.top_losers}
+            value={"loser"}
+            isLoading={isLoading}
+          />
+        )}
       </TabsContent>
     </Tabs>
   );

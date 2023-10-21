@@ -19,6 +19,7 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
       <CardHeader className="w-full border-b mb-4">
         <Header
           selectedValue={selectedValue}
+          value={value}
           setSelectedValue={setSelectedValue}
         />
       </CardHeader>

@@ -12,9 +12,10 @@ import {
 type HeaderProps = {
   selectedValue: string;
   setSelectedValue: (value: string) => void;
+  value: string;
 };
 
-const Header = ({ selectedValue, setSelectedValue }: HeaderProps) => {
+const Header = ({ selectedValue, setSelectedValue, value }: HeaderProps) => {
   return (
     <div className="flex justify-between items-center">
       <span className="text-sm font-thin">TICKER</span>
@@ -34,7 +35,7 @@ const Header = ({ selectedValue, setSelectedValue }: HeaderProps) => {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Top Gainers</SelectLabel>
+              <SelectLabel>Top {value}s</SelectLabel>
               <SelectItem value="price">PRICE</SelectItem>
               <SelectItem value="change_amount">CHANGE AMOUNT</SelectItem>
               <SelectItem value="change_percentage">
