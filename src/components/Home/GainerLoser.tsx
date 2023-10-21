@@ -41,7 +41,10 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
               change_percentage,
               volume,
             }: GainerLoser) => (
-              <div className="flex justify-between items-center" key={ticker}>
+              <div
+                className="flex justify-between items-center h-10 border-b"
+                key={ticker}
+              >
                 <span className="text-sm font-medium text-primary">
                   {ticker}
                 </span>
