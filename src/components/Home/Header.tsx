@@ -25,7 +25,7 @@ const Header = ({ selectedValue, setSelectedValue, value }: HeaderProps) => {
         <span className="text-sm font-thin">CHANGE PERCENTAGE</span>
         <span className="text-sm font-thin">VOLUME</span>
       </div>
-      <div className="flex sm:hidden w-1/3 justify-between">
+      <div className="flex sm:hidden  justify-between">
         <Select
           defaultValue={selectedValue}
           onValueChange={(value) => setSelectedValue(value)}

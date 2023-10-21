@@ -8,7 +8,9 @@ const TabContainer = () => {
   if (isError)
     return (
       <div className="w-sreeen min-h-[100vh-6rem] justify-center items-center flex text-xl font-bold">
-        <h1>Something went wrong</h1>
+        <h1>
+          Something went wrong! Check your internet connection or try to reload.
+        </h1>
       </div>
     );
   return (

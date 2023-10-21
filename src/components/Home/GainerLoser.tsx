@@ -64,7 +64,7 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                     {selectedValue === "change_amount" && change_amount}
                     {selectedValue === "change_percentage" && (
                       <div
-                        className={`text-sm font-medium flex gap-1 justify-center items-center ${
+                        className={`text-sm font-medium flex gap-1 justify-center text-end items-center ${
                           value === "gainer" ? "text-primary" : "text-red-500"
                         }`}
                       >
