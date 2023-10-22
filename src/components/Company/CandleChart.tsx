@@ -6,26 +6,8 @@ import { ChartDummy } from "@/utils/Dummy/Chart";
 import { useTheme } from "next-themes";
 type CandleChartProps = {
   Symbol: string;
-  ChartType:
-    | "area"
-    | "line"
-    | "bar"
-    | "pie"
-    | "donut"
-    | "radialBar"
-    | "scatter"
-    | "bubble"
-    | "heatmap"
-    | "candlestick"
-    | "boxPlot"
-    | "radar"
-    | "polarArea"
-    | "rangeBar"
-    | "rangeArea"
-    | "treemap"
-    | undefined;
 };
-const CandleChart = ({ Symbol, ChartType }: CandleChartProps) => {
+const CandleChart = ({ Symbol }: CandleChartProps) => {
   const { theme } = useTheme();
   const seriesData = useMemo(
     () => StockChartDataFormat(ChartDummy, "Weekly Adjusted Time Series"),
@@ -66,7 +48,7 @@ const CandleChart = ({ Symbol, ChartType }: CandleChartProps) => {
             mode: theme === "dark" ? "dark" : "light",
           },
           chart: {
-            type: ChartType,
+            type: "candlestick",
             background: "none",
           },
           title: {
@@ -82,7 +64,7 @@ const CandleChart = ({ Symbol, ChartType }: CandleChartProps) => {
             },
           },
         }}
-        type={ChartType}
+        type="candlestick"
       />
     </div>
   );
