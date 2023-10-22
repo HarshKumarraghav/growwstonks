@@ -1,24 +1,22 @@
 "use client";
-import { StockChartDataFormat } from "@/utils/Function/ChartDataFormat";
-import React, { useMemo } from "react";
+
+import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { ChartDummy } from "@/utils/Dummy/Chart";
 import { useTheme } from "next-themes";
+import { ChartData } from "../../../types/types";
 type CandleChartProps = {
   Symbol: string;
+  FilteredStockData: ChartData[];
 };
-const CandleChart = ({ Symbol }: CandleChartProps) => {
+const LineChart = ({ Symbol, FilteredStockData }: CandleChartProps) => {
   const { theme } = useTheme();
-  const seriesData = useMemo(
-    () => StockChartDataFormat(ChartDummy, "Weekly Adjusted Time Series"),
-    [ChartDummy]
-  );
+
   return (
     <div className="sm:h-[450px] h-[300px]">
       <ReactApexChart
         series={[
           {
-            data: seriesData,
+            data: [...FilteredStockData],
           },
         ]}
         height={"100%"}
@@ -48,7 +46,7 @@ const CandleChart = ({ Symbol }: CandleChartProps) => {
             mode: theme === "dark" ? "dark" : "light",
           },
           chart: {
-            type: "candlestick",
+            type: "line",
             background: "none",
           },
           title: {
@@ -64,10 +62,10 @@ const CandleChart = ({ Symbol }: CandleChartProps) => {
             },
           },
         }}
-        type="candlestick"
+        type="line"
       />
     </div>
   );
 };
 
-export default CandleChart;
+export default LineChart;

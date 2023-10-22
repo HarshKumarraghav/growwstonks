@@ -12,7 +12,6 @@ export interface GainerLoserObject {
   top_losers: GainerLoser[];
   most_actively_traded: GainerLoser[];
 }
-
 export interface CompanyInfo {
   Symbol: string;
   AssetType: string;
@@ -74,7 +73,6 @@ export interface StockData {
     };
   };
 }
-
 export interface ChartData {
   x: string;
   y: [number, number, number, number];

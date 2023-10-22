@@ -6,7 +6,7 @@ export const StockChartDataFormat = (
 ) => {
   const formattedData: ChartData[] = [];
 
-  if (stockData[objectKey]) {
+  if (stockData && stockData[objectKey]) {
     Object.entries(stockData[objectKey]).forEach(([key, value]) => {
       if (typeof value === "object") {
         formattedData.push({
@@ -21,5 +21,6 @@ export const StockChartDataFormat = (
       }
     });
   }
+
   return formattedData;
 };
