@@ -61,3 +61,21 @@ export interface CompanyInfo {
   DividendDate: string;
   ExDividendDate: string;
 }
+export interface StockData {
+  [key: string]: {
+    [date: string]: {
+      "1. open": string;
+      "2. high": string;
+      "3. low": string;
+      "4. close": string;
+      "5. adjusted close": string;
+      "6. volume": string;
+      "7. dividend amount": string;
+    };
+  };
+}
+
+export interface ChartData {
+  x: string;
+  y: [number, number, number, number];
+}

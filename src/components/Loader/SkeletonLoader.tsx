@@ -3,7 +3,7 @@ import { Skeleton } from "../ui/skeleton";
 
 const SkeletonLoader = () => {
   return (
-    <div className="w-full flex justify-between items-center h-10">
+    <div className="w-full flex justify-between items-center h-10 p-3">
       <Skeleton className="w-1/5 h-4" />
       <div className="hidden sm:flex w-1/2 justify-between">
         <Skeleton className="w-1/5 h-4" />
