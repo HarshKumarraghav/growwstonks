@@ -34,7 +34,7 @@ const TabContainer = () => {
           <ErrorComponent error={error} />
         ) : (
           <GainerLoser
-            GainerData={GainerLoserData?.top_gainers}
+            GainerData={GainerLoserData?.top_gainers || []}
             value={"gainer"}
             isLoading={isLoading}
           />
@@ -48,7 +48,7 @@ const TabContainer = () => {
           <ErrorComponent error={error} />
         ) : (
           <GainerLoser
-            GainerData={GainerLoserData?.top_losers}
+            GainerData={GainerLoserData?.top_losers || []}
             value={"loser"}
             isLoading={isLoading}
           />

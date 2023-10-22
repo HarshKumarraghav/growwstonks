@@ -5,6 +5,13 @@ export interface GainerLoser {
   ticker: string;
   volume: number;
 }
+export interface GainerLoserObject {
+  metadata: string;
+  last_updated: string;
+  top_gainers: GainerLoser[];
+  top_losers: GainerLoser[];
+  most_actively_traded: GainerLoser[];
+}
 
 export interface CompanyInfo {
   Symbol: string;
@@ -53,12 +60,4 @@ export interface CompanyInfo {
   SharesOutstanding: string;
   DividendDate: string;
   ExDividendDate: string;
-}
-
-export interface GainerLoserObject {
-  metadata: string;
-  last_updated: string;
-  top_gainers: GainerLoser[];
-  top_losers: GainerLoser[];
-  most_actively_traded: GainerLoser[];
 }
