@@ -2,28 +2,29 @@
 import React from "react";
 
 import { Card, CardFooter, CardHeader } from "../ui/card";
-// import { DummyCompany } from "@/utils/Dummy/Company";
 import { Button } from "../ui/button";
 import { useDataStore } from "@/utils/Hooks/useDataStore";
 import { useCompanyInfo } from "@/utils/Hooks/useCompanyInfo";
 import CardSkeletonLoader from "../Loader/CardSkeletonLoader";
+import { useRouter } from "next/navigation";
+import ErrorComponent from "../Errors/Error";
 const CompanyInfo = () => {
   const { tickerValue } = useDataStore();
-  const { data: info, isError, isLoading } = useCompanyInfo(tickerValue);
-  if (isError)
-    return (
-      <div className="w-sreeen min-h-[100vh-6rem] justify-center items-center flex text-xl font-bold">
-        <h1>
-          Something went wrong! Check your internet connection or try to reload.
-        </h1>
-      </div>
-    );
-  if (isLoading || info.length === 0) return <CardSkeletonLoader />;
+  const { data: info, isError, isLoading, error } = useCompanyInfo(tickerValue);
+  const Router = useRouter();
+
+  /* The code block `if (isLoading || info.length === 0) return <>{tickerValue && <CardSkeletonLoader
+/>}</>;` is checking if the `isLoading` flag is true or if the `info` array is empty. If either of
+these conditions is true, it returns a JSX element `<CardSkeletonLoader />`. */
+  if (isLoading) return <>{tickerValue && <CardSkeletonLoader />}</>;
+  if (isError) {
+    return <ErrorComponent error={error} />;
+  }
   return (
     <>
       {tickerValue && (
-        <div className="w-[450px] hidden sm:flex h-[350px]">
-          <Card className="fixed mt-10  w-[450px]">
+        <div className="w-[450px] hidden sm:flex">
+          <Card className="fixed mt-10 w-[450px]">
             <CardHeader>
               <div className="flex justify-between items-center">
                 <span className="text-sm font-thin">
@@ -54,7 +55,12 @@ const CompanyInfo = () => {
               </div>
             </CardHeader>
             <CardFooter className="border-t py-2 w-full flex justify-end">
-              <Button variant={"outline"}>Learn More</Button>
+              <Button
+                variant={"outline"}
+                onClick={() => Router.push(`/company/${info?.Symbol}`)}
+              >
+                Learn More
+              </Button>
             </CardFooter>
           </Card>
         </div>
