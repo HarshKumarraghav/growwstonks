@@ -13,17 +13,18 @@ const CompanyInfo = () => {
   const { data: info, isError, isLoading, error } = useCompanyInfo(tickerValue);
   const Router = useRouter();
 
-  /* The code block `if (isLoading || info.length === 0) return <>{tickerValue && <CardSkeletonLoader
-/>}</>;` is checking if the `isLoading` flag is true or if the `info` array is empty. If either of
-these conditions is true, it returns a JSX element `<CardSkeletonLoader />`. */
   if (isLoading) return <>{tickerValue && <CardSkeletonLoader />}</>;
-  if (isError) {
-    return <ErrorComponent error={error} />;
-  }
+
   return (
     <>
       {tickerValue && (
         <div className="w-[450px] hidden sm:flex">
+          {isError && (
+            /* The `<ErrorComponent error={error} />` is rendering an error component and passing the
+            `error` prop to it. This component is displayed when there is an error in fetching the data
+            from the `useCompanyInfo` hook. */
+            <ErrorComponent error={error} />
+          )}
           <Card className="fixed mt-10 w-[450px]">
             <CardHeader>
               <div className="flex justify-between items-center">

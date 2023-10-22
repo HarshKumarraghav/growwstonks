@@ -28,9 +28,6 @@ const TabContainer = () => {
       </TabsList>
       <TabsContent value="gainer" className="w-full">
         {isError ? (
-          /* The `<ErrorComponent error={error} />` is rendering an error component and passing the
-        `error` prop to it. This component is displayed when there is an error in fetching the data
-        from the `useTopGainerLoser` hook. */
           <ErrorComponent error={error} />
         ) : (
           <GainerLoser
@@ -42,9 +39,6 @@ const TabContainer = () => {
       </TabsContent>
       <TabsContent value="loser" className="w-full">
         {isError ? (
-          /* The `<ErrorComponent error={error} />` is rendering an error component and passing the
-        `error` prop to it. This component is displayed when there is an error in fetching the data
-        from the `useTopGainerLoser` hook. */
           <ErrorComponent error={error} />
         ) : (
           <GainerLoser

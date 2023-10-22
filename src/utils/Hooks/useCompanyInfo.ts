@@ -11,8 +11,8 @@ export const useCompanyInfo = (symbol: string) => {
       const { data } = await axios.get(URL);
       if (data.Note) {
         throw new Error(data.Note);
-      } else if (data.information) {
-        throw new Error(data.information);
+      } else if (data.Information) {
+        throw new Error(data.Information);
       }
       return data as CompanyInfo;
     },
