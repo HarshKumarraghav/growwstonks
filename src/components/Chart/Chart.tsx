@@ -7,8 +7,26 @@ import { ChartData } from "../../../types/types";
 type CandleChartProps = {
   Symbol: string;
   FilteredStockData: ChartData[];
+  ChartType:
+    | "line"
+    | "area"
+    | "bar"
+    | "pie"
+    | "donut"
+    | "radialBar"
+    | "scatter"
+    | "bubble"
+    | "heatmap"
+    | "candlestick"
+    | "boxPlot"
+    | "radar"
+    | "polarArea"
+    | "rangeBar"
+    | "rangeArea"
+    | "treemap"
+    | undefined;
 };
-const LineChart = ({ Symbol, FilteredStockData }: CandleChartProps) => {
+const Chart = ({ Symbol, FilteredStockData, ChartType }: CandleChartProps) => {
   const { theme } = useTheme();
 
   return (
@@ -62,10 +80,10 @@ const LineChart = ({ Symbol, FilteredStockData }: CandleChartProps) => {
             },
           },
         }}
-        type="line"
+        type={ChartType}
       />
     </div>
   );
 };
 
-export default LineChart;
+export default Chart;

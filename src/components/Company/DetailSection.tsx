@@ -46,10 +46,10 @@ const DetailSection = ({ TikerValue }: DetailSectionProps) => {
 
             <div className="text-sm text-muted-foreground border-t py-2">
               <div className="flex gap-4 items-center">
-                <Badge className="text-[12px] font-thin rounded-full text-white">
+                <Badge className="text-[12px] rounded-full text-white">
                   SECTOR : {info?.Sector}
                 </Badge>
-                <Badge className="text-[12px] font-thin rounded-full text-white">
+                <Badge className="text-[12px]  rounded-full text-white">
                   INDUSTRY: {info?.Industry}
                 </Badge>
               </div>
