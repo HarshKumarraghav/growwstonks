@@ -54,3 +54,11 @@ export interface CompanyInfo {
   DividendDate: string;
   ExDividendDate: string;
 }
+
+export interface GainerLoserObject {
+  metadata: string;
+  last_updated: string;
+  top_gainers: GainerLoser[];
+  top_losers: GainerLoser[];
+  most_actively_traded: GainerLoser[];
+}

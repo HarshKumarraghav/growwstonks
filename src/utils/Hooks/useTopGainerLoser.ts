@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { GainerLoserObject } from "../../../types/types";
 
 export const useTopGainerLoser = () => {
   const SECRET_KEY = process.env.NEXT_PUBLIC_ALPHA_API_KEY;
@@ -8,7 +9,12 @@ export const useTopGainerLoser = () => {
     queryKey: ["gainer_looser", URL],
     queryFn: async () => {
       const { data } = await axios.get(URL);
-      return data;
+      if (data.Note) {
+        throw new Error(data.Note);
+      } else if (data.information) {
+        throw new Error(data.information);
+      }
+      return data as GainerLoserObject;
     },
   });
 };
