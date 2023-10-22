@@ -51,7 +51,7 @@ const CompanyChart = ({ Symbol }: CompanyChartProps) => {
           FilteredStockData={FilteredStockData}
           ChartType={chartType}
         />
-        <div className=" flex w-full mt-10 justify-between items-center">
+        <div className=" flex flex-col sm:fle-row w-full mt-10 justify-between items-center">
           <div className="flex justify-center">
             <button
               className={`p-2 shadow-md border rounded-l-md w-14 ${
