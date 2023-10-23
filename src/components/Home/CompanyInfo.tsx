@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import ErrorComponent from "../Errors/Error";
 const CompanyInfo = () => {
   const { tickerValue } = useDataStore();
+
   const { data: info, isError, isLoading, error } = useCompanyInfo(tickerValue);
   const Router = useRouter();
 

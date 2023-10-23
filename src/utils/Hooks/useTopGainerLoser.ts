@@ -16,5 +16,6 @@ export const useTopGainerLoser = () => {
       }
       return data as GainerLoserObject;
     },
+    staleTime: 5 * 60 * 1000,
   });
 };
