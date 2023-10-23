@@ -58,7 +58,7 @@ const CompanyInfo = () => {
             <CardFooter className="border-t py-2 w-full flex justify-end">
               <Link
                 href={`/company/${info?.Symbol}`}
-                className={buttonVariants({ variant: "outline" })}
+                className={buttonVariants({ variant: "outline", size: "sm" })}
               >
                 Learn More
               </Link>
