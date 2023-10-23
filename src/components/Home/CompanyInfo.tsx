@@ -19,14 +19,14 @@ const CompanyInfo = () => {
   return (
     <>
       {tickerValue && (
-        <div className="w-[450px] hidden sm:flex">
+        <div className="w-full md:w-[450px] flex">
           {isError && (
             /* The `<ErrorComponent error={error} />` is rendering an error component and passing the
             `error` prop to it. This component is displayed when there is an error in fetching the data
             from the `useCompanyInfo` hook. */
             <ErrorComponent error={error} />
           )}
-          <Card className="fixed mt-10 w-[450px]">
+          <Card className=" md:fixed mt-10 w-full md:w-[400px]">
             <CardHeader>
               <div className="flex justify-between items-center">
                 <span className="text-sm font-thin">

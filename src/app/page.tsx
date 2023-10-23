@@ -4,7 +4,7 @@ import TabContainer from "@/components/Home/TabContainer";
 
 export default function Home() {
   return (
-    <MaxWidthWrapper className="py-10 relative gap-4 flex">
+    <MaxWidthWrapper className="py-10 relative gap-4 flex flex-col-reverse md:flex-row">
       <TabContainer />
       <CompanyInfo />
     </MaxWidthWrapper>

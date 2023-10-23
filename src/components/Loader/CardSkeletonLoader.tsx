@@ -4,8 +4,8 @@ import { Skeleton } from "../ui/skeleton";
 
 const CardSkeletonLoader = () => {
   return (
-    <div className="w-[450px] hidden sm:flex h-[350px]">
-      <Card className="fixed mt-10  w-[450px]">
+    <div className="w-full md:w-[450px] sm:flex h-[450px]">
+      <Card className="md:fixed w-full md:w-[450px]">
         <CardHeader>
           <div className="flex justify-between items-center gap-2">
             <Skeleton className="w-1/5 h-4" />

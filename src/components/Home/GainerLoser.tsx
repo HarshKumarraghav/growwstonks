@@ -75,7 +75,10 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                   </div>
                   <span className="text-sm font-medium">{volume}</span>
                 </div>
-                <div className="flex sm:hidden w-1/3 justify-end text-end">
+                <div
+                  className="flex sm:hidden w-1/3 justify-end text-end"
+                  onClick={() => setTickerValue(ticker)}
+                >
                   <span className="text-sm font-medium">
                     {selectedValue === "price" && <>${price}</>}
                     {selectedValue === "change_amount" && change_amount}
