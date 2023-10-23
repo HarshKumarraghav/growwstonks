@@ -7,7 +7,8 @@ import { useDataStore } from "@/utils/Hooks/useDataStore";
 import { useCompanyInfo } from "@/utils/Hooks/useCompanyInfo";
 import CardSkeletonLoader from "../Loader/CardSkeletonLoader";
 import ErrorComponent from "../Errors/Error";
-import { Link } from "lucide-react";
+import Link from "next/link";
+
 const CompanyInfo = () => {
   const { tickerValue } = useDataStore();
 
