@@ -53,8 +53,12 @@ function SearchModal() {
             "relative w-full justify-start text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-96"
           )}
         >
-          <span className="hidden lg:inline-flex">Search documentation...</span>
-          <span className="inline-flex lg:hidden">Search...</span>
+          <span className="hidden lg:inline-flex">
+            Search for a company or ticker
+          </span>
+          <span className="inline-flex lg:hidden">
+            Search for a company or ticker
+          </span>
           <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
             <span className="text-xs">⌘</span>K
           </kbd>
@@ -76,7 +80,7 @@ function SearchModal() {
             <span className="text-sm font-medium">Filters</span>
             <div className="w-full flex gap-3">
               <Button
-                className={`h-8 px-4 py-2  ${
+                className={`h-8 px-4  ${
                   selectFilter === "all"
                     ? "bg-primary text-white"
                     : "bg-white text-primary"
@@ -86,7 +90,7 @@ function SearchModal() {
                 <span>All</span>
               </Button>
               <Button
-                className={`h-8 px-4 py-2  ${
+                className={`h-8 px-4  ${
                   selectFilter === "stock"
                     ? "bg-primary text-white"
                     : "bg-white text-primary"
@@ -96,7 +100,7 @@ function SearchModal() {
                 <span>Stocks</span>
               </Button>
               <Button
-                className={`h-8 px-4 py-2  ${
+                className={`h-8 px-4  ${
                   selectFilter === "etf"
                     ? "bg-primary text-white"
                     : "bg-white text-primary"
@@ -104,6 +108,16 @@ function SearchModal() {
                 onClick={() => setSelectFilter("etf")}
               >
                 <span>ETF</span>
+              </Button>
+              <Button
+                className={`h-8 px-4  ${
+                  selectFilter === "Mutual Fund"
+                    ? "bg-primary text-white"
+                    : "bg-white text-primary"
+                }`}
+                onClick={() => setSelectFilter("Mutual Fund")}
+              >
+                <span>Mutual Fund</span>
               </Button>
             </div>
           </div>
@@ -148,6 +162,17 @@ function SearchModal() {
                         .toLowerCase()
                         .includes(debouncedSearchTerm.toLowerCase()) &&
                         item["3. type"] === "ETF")
+                    );
+                  } else if (selectFilter === "Mutual Fund") {
+                    return (
+                      (item["2. name"]
+                        .toLowerCase()
+                        .includes(debouncedSearchTerm.toLowerCase()) &&
+                        item["3. type"] === "Mutual Fund") ||
+                      (item["1. symbol"]
+                        .toLowerCase()
+                        .includes(debouncedSearchTerm.toLowerCase()) &&
+                        item["3. type"] === "Mutual Fund")
                     );
                   }
                 })
