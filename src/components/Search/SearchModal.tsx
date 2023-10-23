@@ -11,6 +11,8 @@ import { useStockSearchInfo } from "@/utils/Hooks/useStockSearchInfo";
 import { useDebounce } from "@/utils/Hooks/useDebounce";
 import { Input } from "../ui/input";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import SearchLoader from "../Loader/SearchLoader";
+import ErrorComponent from "../Errors/Error";
 
 function SearchModal() {
   const Router = useRouter();
@@ -58,6 +60,7 @@ function SearchModal() {
           </kbd>
         </Button>
       </DialogTrigger>
+
       <DialogContent className="overflow-hidden p-0 flex-col">
         <div className="flex items-center border-b px-3">
           <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
@@ -108,6 +111,8 @@ function SearchModal() {
         <div className="overflow-scroll p-0 h-[300px]">
           {value.length === 0 ? (
             <></>
+          ) : isLoading ? (
+            <SearchLoader />
           ) : (
             <div className="flex gap-2 mb-2 flex-col p-3">
               <span className="text-sm font-medium">Search Company</span>
@@ -124,9 +129,10 @@ function SearchModal() {
                     );
                   } else if (selectFilter === "stock") {
                     return (
-                      item["2. name"]
+                      (item["2. name"]
                         .toLowerCase()
-                        .includes(debouncedSearchTerm.toLowerCase()) ||
+                        .includes(debouncedSearchTerm.toLowerCase()) &&
+                        item["3. type"] === "Equity") ||
                       (item["1. symbol"]
                         .toLowerCase()
                         .includes(debouncedSearchTerm.toLowerCase()) &&
@@ -134,9 +140,10 @@ function SearchModal() {
                     );
                   } else if (selectFilter === "etf") {
                     return (
-                      item["2. name"]
+                      (item["2. name"]
                         .toLowerCase()
-                        .includes(debouncedSearchTerm.toLowerCase()) ||
+                        .includes(debouncedSearchTerm.toLowerCase()) &&
+                        item["3. type"] === "ETF") ||
                       (item["1. symbol"]
                         .toLowerCase()
                         .includes(debouncedSearchTerm.toLowerCase()) &&
