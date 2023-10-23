@@ -5,14 +5,15 @@
 </p>
 <p align="center">
 
-<img width="150" alt="poster1" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/7ea15705-6785-40c5-95f3-183cac18121d">
+<img width="150" alt="poster1" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/5ec39914-ef96-40a5-a1bf-be66260bf2e8">
 
 </p>
 
-**GrowwStonks** is a stock detail website that provides you with the latest stock details, gainer and loser stocks, multiple charts like candlestick, line, bar, etc ,and a search bar to search for any stock. It also provides you with a profile page where you can see your favorite stocks and your search history.
+**GrowwStonks** is a stock detail website that provides you with the latest stock details, gainer and loser stocks, multiple charts like candlestick, line, bar, etc,and a search bar to search for any stock. It also provides you with a profile page where you can see your favorite stocks and your search history.
 
 <p align="center">
 <img src="https://img.shields.io/badge/Author-@HarshKumarraghav-critical" />
+
 </p>
 <div align="center">
 
@@ -24,31 +25,41 @@
 
 https://growwstonks.vercel.app/
 
-## Video Demo
+## Home Page
 
-https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/d7ae133d-e686-41f9-bcdb-ffb08e752d24
+<img width="1440" alt="Screenshot 2023-10-23 at 4 22 11 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/7547e598-c348-48e2-b8de-85514c96f8f6">
+
+## Light: Home Page
+
+<img width="1440" alt="Screenshot 2023-10-23 at 4 24 10 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/c5e3965d-0887-4dbc-8e49-5253419fb725">
+
 
 ## 🛠️ Tech Stack Used in GrowwStonks:
 
 - **NextJS 13:** A popular JavaScript library for building user interfaces, providing a fast and responsive application.
 - **React-Query:** Powerful asynchronous state management for TS/JS, React.
-- **Unsplash API:** The most powerful photo engine in the world.
+- **AlphaVantage:** The Good API for stock details.
 
 # Page Screenshot
 
-## Home Page
+## Search Modal
 
-<img width="1440" alt="poster1" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/50415cf5-1463-43fc-a48c-326b31fa7a2d">
+<img width="1440" alt="Screenshot 2023-10-23 at 4 22 53 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/3d7e49a0-c018-47f8-8ca6-fa4aeab3c971">
 
-## Profile Page
+## Line Chart
 
-### Light
+<img width="1440" alt="Screenshot 2023-10-23 at 4 23 15 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/bea401bb-e344-4797-b5f4-06c050cb1312">
 
-<img width="1440" alt="poster2" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/ee8f496d-de49-43d2-b8b8-2f4ac40e274d">
 
-### Dark
+### Candlestick Chart
 
-<img width="1440" alt="poster3" src="https://github.com/HarshKumarraghav/SocialSeedlings/assets/72187191/10048ae7-61ea-4b51-99eb-c465c63a93b2">
+<img width="1440" alt="Screenshot 2023-10-23 at 4 23 33 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/059d5e64-10d4-4dab-8e4b-a469d968f4fb">
+
+
+### Details 
+
+<img width="1440" alt="Screenshot 2023-10-23 at 4 23 50 PM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/fb85ef03-db77-4766-a449-2a9f86b93113">
+
 
 ---
 
