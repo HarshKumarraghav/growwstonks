@@ -2,17 +2,16 @@
 import React from "react";
 
 import { Card, CardFooter, CardHeader } from "../ui/card";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { useDataStore } from "@/utils/Hooks/useDataStore";
 import { useCompanyInfo } from "@/utils/Hooks/useCompanyInfo";
 import CardSkeletonLoader from "../Loader/CardSkeletonLoader";
-import { useRouter } from "next/navigation";
 import ErrorComponent from "../Errors/Error";
+import { Link } from "lucide-react";
 const CompanyInfo = () => {
   const { tickerValue } = useDataStore();
 
   const { data: info, isError, isLoading, error } = useCompanyInfo(tickerValue);
-  const Router = useRouter();
 
   if (isLoading) return <>{tickerValue && <CardSkeletonLoader />}</>;
 
@@ -57,12 +56,12 @@ const CompanyInfo = () => {
               </div>
             </CardHeader>
             <CardFooter className="border-t py-2 w-full flex justify-end">
-              <Button
-                variant={"outline"}
-                onClick={() => Router.push(`/company/${info?.Symbol}`)}
+              <Link
+                href={`/company/${info?.Symbol}`}
+                className={buttonVariants({ variant: "outline" })}
               >
                 Learn More
-              </Button>
+              </Link>
             </CardFooter>
           </Card>
         </div>

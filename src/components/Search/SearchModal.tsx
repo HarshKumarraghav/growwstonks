@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { DummySearch } from "@/utils/Dummy/Search";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -9,10 +8,8 @@ import { TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useStockSearchInfo } from "@/utils/Hooks/useStockSearchInfo";
 import { useDebounce } from "@/utils/Hooks/useDebounce";
-import { Input } from "../ui/input";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import SearchLoader from "../Loader/SearchLoader";
-import ErrorComponent from "../Errors/Error";
 
 function SearchModal() {
   const Router = useRouter();
@@ -20,12 +17,8 @@ function SearchModal() {
   const [selectFilter, setSelectFilter] = useState("all");
   const [open, setOpen] = useState(false);
   const debouncedSearchTerm = useDebounce(value, 500);
-  const {
-    data: searchData,
-    isLoading,
-    isError,
-    error,
-  } = useStockSearchInfo(debouncedSearchTerm);
+  const { data: searchData, isLoading } =
+    useStockSearchInfo(debouncedSearchTerm);
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {

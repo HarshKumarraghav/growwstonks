@@ -7,7 +7,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import Header from "./Header";
 import SkeletonLoader from "../Loader/SkeletonLoader";
 import { useDataStore } from "@/utils/Hooks/useDataStore";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type GainerLoserProps = {
   GainerData: GainerLoser[];
@@ -16,7 +16,6 @@ type GainerLoserProps = {
 };
 
 const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
-  const Router = useRouter();
   const { tickerValue, setTickerValue } = useDataStore();
   const [selectedValue, setSelectedValue] = useState("price");
   return (
@@ -53,12 +52,12 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                 }`}
                 key={ticker}
               >
-                <span
+                <Link
+                  href={`/company/${ticker}`}
                   className="text-sm font-medium hover:text-primary hover:underline cursor-pointer"
-                  onClick={() => Router.push(`/company/${ticker}`)}
                 >
                   {ticker}
-                </span>
+                </Link>
                 <div
                   className="hidden sm:flex w-1/2 justify-between text-center cursor-pointer"
                   onClick={() => setTickerValue(ticker)}
