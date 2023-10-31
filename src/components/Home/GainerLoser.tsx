@@ -87,7 +87,7 @@ const GainerLoser = ({ GainerData, value, isLoading }: GainerLoserProps) => {
                           value === "gainer" ? "text-primary" : "text-red-500"
                         }`}
                       >
-                        <span>{change_percentage}%</span>
+                        <span>{change_percentage}</span>
                         {value === "gainer" ? <ChevronUp /> : <ChevronDown />}
                       </div>
                     )}
