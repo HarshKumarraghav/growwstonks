@@ -9,7 +9,11 @@
 
 </p>
 
-**GrowwStonks** is a stock detail website that provides you with the latest stock details, gainer and loser stocks, multiple charts like candlestick, line, bar, etc,and a search bar to search for any stock. It also provides you with a profile page where you can see your favorite stocks and your search history.
+# !!!!Important!!!!
+
+<img width="1039" alt="Screenshot 2023-10-29 at 2 00 32 AM" src="https://github.com/HarshKumarraghav/growwstonks/assets/72187191/b85ac871-4c1a-42d2-8b4d-c418e01dac5d">
+
+**GrowwStonks** is a stock detail website that provides you with the latest stock details, gainer and loser stocks, multiple charts like candlestick, line, bar, etc, and a search bar to search for any stock. It also provides you with a profile page where you can see your favorite stocks and your search history.
 
 <p align="center">
 
